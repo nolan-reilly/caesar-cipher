@@ -16,13 +16,13 @@ def caesar_cipher(string, shift)
     if alphabet.include?(c)
       index = alphabet.index(c)
 
-      cipher.push(alphabet[index + shift_num])
-    end
-
-    if is_capitalized and capitalized_alphabet.include?(c)
+      cipher.push(alphabet[(index + shift_num) % 26])
+    elsif is_capitalized and capitalized_alphabet.include?(c)
       index = capitalized_alphabet.index(c)
 
-      cipher.push(capitalized_alphabet[index + shift_num])
+      cipher.push(capitalized_alphabet[(index + shift_num) % 26])
+    else
+      cipher.push(c)
     end
   end
   
